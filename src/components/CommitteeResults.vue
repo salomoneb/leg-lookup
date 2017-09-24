@@ -1,23 +1,27 @@
 <template >
-	<div class="results">
-		<img v-if="loading" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif">	
-		<!-- <h1>{{ committeeInfo }}</h1>	 -->
-		
-<!-- 		<div class="facts" v-if="committeeData" @change="showMembers">
+	<div class="committee-results">
+		<div class="committee-facts" v-if="facts">
 			<h2>Quick Facts:</h2>
-			<p>Name: {{ facts.name }}</p>
-			<p>Committee Website: <a v-bind:href="facts.url">{{ facts.url }}</a></p>
-		</div> -->
-
+			<p>Name: {{facts.name}}</p>
+			<p>Chair: {{facts.chair}}</p>
+			<p>Number of Members: {{facts.current_members.length}}</p>
+			<p>Website: <a v-bind:href="facts.url" target="_blank">{{facts.url}}</a></p>
+		</div>
 		<table class="committee-members" v-if="members.length">
-			<tr v-for="member in members">
-				<td>{{ member.name}}</td>
-				<td>{{ member.state}}</td>
-				<td>{{ member.party}}</td>
+			<tr class="member-headers">
+				<th>Name</th>
+				<th>State</th>
+				<th>Party</th>
+				<th>Chamber</th>
+			</tr>
+			<tr class="member-info" v-for="member in members">
+				<td>{{member.name}}</td>
+				<td>{{member.state}}</td>
+				<td>{{member.party}}</td>
+				<td>{{member.chamber | capitalize}}</td>
 			</tr>
 		</table>
-
-		</div>
+	</div>
 </template>
  
 <script>
@@ -27,32 +31,38 @@
 		data: function() {
 			return {
 				members: "",
+				facts: "",
 				loading: false,
-				facts: [], 
+				facts: "", 
 				errors: "", 
 			}
 		}, 
 		watch: {
 			committeeInfo(val) {
 				if (this.committeeInfo !== "") {
-						console.log(this.members)
-						this.members = this.committeeInfo.current_members				
+						this.members = this.committeeInfo.current_members	
+						this.facts = this.committeeInfo	
+						console.log(this.facts)
 				}
 			}, 
 			chamber(val) {
 				if (this.chamber !== "") {
 					console.log(val)
 					this.members = ""
+					this.facts = ""
 				}
 			}
-		}
+		}, 
+	  filters: {
+	    capitalize: function(value) {
+	      if (!value) {
+	      	return ""
+	      } 
+	      value = value.toString()
+	      return value.charAt(0).toUpperCase() + value.slice(1)
+	    }
+	  }
 	}
 </script>
 <style>
-	.results {
-		display: flex;
-		flex-direction: row;
-		align-items: flex-start;
-		justify-content: center;
-	}
 </style>

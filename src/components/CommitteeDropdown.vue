@@ -4,6 +4,7 @@
 			<option disabled value="">Pick a committee</option>
 			<option v-for="committee in chamberCommittees" v-bind:value="committee.id" >{{ committee.name }}</option>
 		</select>
+				<img v-if="loading" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif">	
 		<committeeresults :committeeInfo="committeeData" :chamber="chamberName"></committeeresults>
 	</div>
 </template>
@@ -32,6 +33,7 @@
 			}, 
 			committees(val) {
 				if (this.committees !== "") {
+					this.loading = true
 					axios.request("get", {
 						url: `https://api.propublica.org/congress/v1/115/${this.chamberName.toLowerCase()}/committees/${this.committees}.json`, 
 						headers: {
