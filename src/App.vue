@@ -2,18 +2,21 @@
   <div id="app">
     <!-- <img src="./assets/logo.png"> -->
     <!-- <hello></hello> -->
-    <dropdown></dropdown>
+    <!-- <component1></component1> -->
+    <chamberdropdown></chamberdropdown>
   </div>
 </template>
 
 <script>
 import Hello from './components/Hello'
-import Dropdown from './components/Dropdown'
+import chamberdropdown from './components/ChamberDropdown'
+// import component1 from './components/Component1'
 
 export default {
   name: 'app',
   components: {
-    Hello, Dropdown
+    Hello, chamberdropdown
+    // component1
   }
 }
 </script>
