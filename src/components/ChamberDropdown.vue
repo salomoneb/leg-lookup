@@ -1,13 +1,13 @@
 <template>
 	<div class="chamber-selection">
-		<p>{{hello}}</p>
-		<select class="chamber-select"v-model="chamber">
+		<p>{{prompt}}</p>
+		<select class="chamber-select" v-model="chamber">
 			<option disabled value="">Pick a Chamber</option>
 			<option>House</option>
 			<option>Senate</option>
 			<option>Joint</option>
 		</select> 
-		<committeedropdown :chamberCommittees="committees" :chamberValue="chamber"></committeedropdown>
+		<committeedropdown :chamberCommittees="committees" :chamberName="chamber"></committeedropdown>
 	</div>
 </template>
 
@@ -20,7 +20,7 @@
 			return {
 				chamber: "",
 				committees: "",
-				hello: "Hello there"
+				prompt: "Find information on a federal committee"
 			}
 		}, 
 		watch: {
@@ -33,7 +33,6 @@
 				})
 				.then(response => {
 					this.committees = response.data.results[0].committees
-					// console.log(this.committees)
 		      this.loading = false
 		    })
 		    .catch(e => {
@@ -41,7 +40,6 @@
 		    })				
 			}
 		},
-
 		components: {
 			committeedropdown
 		}
