@@ -4,7 +4,7 @@
 			<option disabled value="">Pick a committee</option>
 			<option v-for="committee in chamberCommittees" v-bind:value="committee.id" >{{ committee.name }}</option>
 		</select>
-		<committeeresults :committeeInfo="committeeData"></committeeresults>
+		<committeeresults :committeeInfo="committeeData" :chamber="chamberName"></committeeresults>
 	</div>
 </template>
 

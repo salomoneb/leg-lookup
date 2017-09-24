@@ -23,7 +23,7 @@
 <script>
 	export default {
 		name: "committeeresults", 
-		props: ["committeeInfo"], 
+		props: ["committeeInfo", "chamber"], 
 		data: function() {
 			return {
 				members: "",
@@ -34,9 +34,16 @@
 		}, 
 		watch: {
 			committeeInfo(val) {
-			if (this.committeeInfo !== "")
-					this.members = this.committeeInfo.current_members
-					console.log(this.members)
+				if (this.committeeInfo !== "") {
+						console.log(this.members)
+						this.members = this.committeeInfo.current_members				
+				}
+			}, 
+			chamber(val) {
+				if (this.chamber !== "") {
+					console.log(val)
+					this.members = ""
+				}
 			}
 		}
 	}
