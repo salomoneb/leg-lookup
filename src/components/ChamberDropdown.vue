@@ -1,14 +1,13 @@
 <template>
-	<div class="chamber-selection">
-		<p>{{prompt}}</p>
+	<div id="chamber-selection">
 		<select class="chamber-select" v-model="chamber">
 			<option disabled value="">Pick a Chamber</option>
 			<option>House</option>
 			<option>Senate</option>
 			<option>Joint</option>
 		</select> 
-		<img v-if="loading" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif">	
 		<committeedropdown :chamberCommittees="committees" :chamberName="chamber"></committeedropdown>
+		<img v-if="loading" src="../assets/images/loader.svg">	
 	</div>
 </template>
 
@@ -21,8 +20,7 @@
 			return {
 				chamber: "",
 				committees: "",
-				loading: false,
-				prompt: "Find information on a federal committee"
+				loading: false
 			}
 		}, 
 		watch: {

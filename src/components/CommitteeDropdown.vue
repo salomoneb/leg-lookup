@@ -1,11 +1,11 @@
 <template>
-	<div class="committee-selection" v-if="chamberCommittees"> 
+	<div id="committee-selection" v-if="chamberCommittees"> 
 		<select class="committee-select" v-model="committees">
 			<option disabled value="">Pick a committee</option>
 			<option v-for="committee in chamberCommittees" v-bind:value="committee.id" >{{ committee.name }}</option>
 		</select>
-				<img v-if="loading" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif">	
 		<committeeresults :committeeInfo="committeeData" :chamber="chamberName"></committeeresults>
+		<img v-if="loading" src="../assets/images/loader.svg">	
 	</div>
 </template>
 

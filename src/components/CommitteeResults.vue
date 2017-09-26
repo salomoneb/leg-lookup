@@ -1,5 +1,5 @@
 <template >
-	<div class="committee-results">
+	<div id="committee-results">
 		<div class="committee-facts" v-if="facts">
 			<h2>Quick Facts:</h2>
 			<p>Name: {{facts.name}}</p>
@@ -65,4 +65,7 @@
 	}
 </script>
 <style>
+	.member-info:hover {
+		background-color: #yellow;
+	}
 </style>
