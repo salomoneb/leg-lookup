@@ -6,20 +6,25 @@
 			<option>Senate</option>
 			<option>Joint</option>
 		</select> 
-		<committeedropdown :chamberCommittees="committees" :chamberName="chamber"></committeedropdown>
-		<img v-if="loading" src="../assets/images/loader.svg">	
+		<errormessage v-if="errors !==''" :errorMsgs="errors"></errormessage>
+		<committeedropdown :chamberCommittees="committees" :chamberName="chamber" :loaderIcon="loader"></committeedropdown>
+		<img v-if="loading" :src="loader">	
 	</div>
 </template>
 
 <script>
 	import committeedropdown from "./CommitteeDropdown"
+	import errormessage from "./ErrorMessage"
 	import axios from "axios"
+
 	export default {
 		name: "chamberdropdown", 
 		data: function() {
 			return {
 				chamber: "",
 				committees: "",
+				errors: "",
+				loader: require("../assets/images/loader.svg"), 
 				loading: false
 			}
 		}, 
@@ -37,14 +42,16 @@
 						this.committees = response.data.results[0].committees
 			      this.loading = false
 			    })
-			    .catch(e => {
-			      this.errors.push(e)
+			    .catch(err => {
+			      this.errors = err
+			      console.log(this.errors)
+			      this.loading=false
 			    })									
 				}
 			}
 		},
 		components: {
-			committeedropdown
+			committeedropdown, errormessage
 		}
 	}
 </script>

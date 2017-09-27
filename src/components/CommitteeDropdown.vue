@@ -4,24 +4,26 @@
 			<option disabled value="">Pick a committee</option>
 			<option v-for="committee in chamberCommittees" v-bind:value="committee.id" >{{ committee.name }}</option>
 		</select>
+	  <errormessage v-if="errors !==''" :errorMsgs="errors"></errormessage>
 		<committeeresults :committeeInfo="committeeData" :chamber="chamberName"></committeeresults>
-		<img v-if="loading" src="../assets/images/loader.svg">	
+		<img v-if="loading" :src="loaderIcon">	
 	</div>
 </template>
 
 <script>
 	import committeeresults from "./CommitteeResults"
+	import errormessage from "./ErrorMessage"
 	import axios from "axios"
 	export default {
 		name: "committeedropdown", 
-		props: ["chamberCommittees", "chamberName"],
+		props: ["chamberCommittees", "chamberName", "loaderIcon"],
 		data: function() {
 			return {
 				chamber: "",
 				committees: "",
 				committeeData: "",
-				errors: [], 
-				loading: false, 
+				errors: "",
+				loading: false 
 			}
 		}, 
 		watch: {
@@ -38,20 +40,23 @@
 						url: `https://api.propublica.org/congress/v1/115/${this.chamberName.toLowerCase()}/committees/${this.committees}.json`, 
 						headers: {
 							"X-API-Key": "2eX2Dxe43hYuiIoXVeBg463BY8rpXVfY1PzbIUBu"
+							// "X-API-Key": "2eX2Dxe43hYuiIoXVeBg463BY8rpXVfY1PzbIUB"
 						}
 					})
 					.then(response => {
 						this.committeeData = response.data.results[0]
 			      this.loading = false
 			    })
-			    .catch(e => {
-			      this.errors.push(e)
+			    .catch(err => {
+			      this.errors = err
+			      console.log(err)
+			      this.loading=false
 			    })						
 				}
 			}
 		}, 
 		components: {
-			committeeresults
+			committeeresults, errormessage
 		}
 	}
 </script>

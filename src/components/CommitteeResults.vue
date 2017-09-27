@@ -42,12 +42,10 @@
 				if (this.committeeInfo !== "") {
 						this.members = this.committeeInfo.current_members	
 						this.facts = this.committeeInfo	
-						console.log(this.facts)
 				}
 			}, 
 			chamber(val) {
 				if (this.chamber !== "") {
-					console.log(val)
 					this.members = ""
 					this.facts = ""
 				}
@@ -64,8 +62,3 @@
 	  }
 	}
 </script>
-<style>
-	.member-info:hover {
-		background-color: #yellow;
-	}
-</style>
