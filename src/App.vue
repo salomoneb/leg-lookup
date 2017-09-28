@@ -10,7 +10,7 @@
       <h1>Find a Committee</h1>
     </header>
     <chamberdropdown></chamberdropdown>
-    <footer class="footer"><p>Data via <a href="https://www.propublica.org/datastore/api/propublica-congress-api">ProPublica</a></p></footer>
+    <footer class="footer"><p>Data via <a href="https://www.propublica.org/datastore/api/propublica-congress-api" target="_blank">ProPublica</a></p></footer>
   </div>
 </template>
 
@@ -57,8 +57,9 @@ body {
 }
 a {
   color: #345f96;
-  text-decoration: none;
+  font-weight: 600;
   border-bottom: 2px dotted;
+  text-decoration: none;
   &:hover {
     color: #3e71b3;
   }
@@ -87,9 +88,9 @@ select {
   }
 
   .capitol {
-    background-color: #3e71b3;
+    background-color: #000;
     border-radius: 8px;
-    margin-bottom: 0.5em;
+    margin-bottom: 1em;
     width: 4em; 
   }
 
@@ -116,7 +117,7 @@ select {
   padding: 1em 1.5em;
   margin: 1.5em 0; 
   h2 {
-    margin-top: 0;
+    margin: 0 0 1rem;
     text-align: center;
   }
   p {
@@ -131,8 +132,13 @@ select {
   border-spacing: 1em;
   width: 100%;
 
-  .member-info:nth-child(even) {
-    background: #ddd;
+  .member-info{
+    td {
+      padding: 4px;
+    }
+    &:nth-child(even) {
+      background: rgba(221, 221, 221, 0.4);
+    }
   }
 }
 
