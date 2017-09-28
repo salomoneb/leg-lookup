@@ -6,6 +6,7 @@ import App from './App'
 import Dropdown from "./components/ChamberDropdown"
 
 Vue.config.productionTip = false
+console.log(process.env)
 
 new Vue({
   el: '#app',

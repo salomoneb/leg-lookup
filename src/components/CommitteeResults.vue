@@ -1,11 +1,11 @@
 <template >
 	<div id="committee-results">
 		<div class="committee-facts" v-if="facts">
-			<h2>Quick Facts:</h2>
-			<p>Name: {{facts.name}}</p>
-			<p>Chair: {{facts.chair}}</p>
-			<p>Number of Members: {{facts.current_members.length}}</p>
-			<p>Website: <a v-bind:href="facts.url" target="_blank">{{facts.url}}</a></p>
+			<h2>Quick Facts</h2>
+			<p><span class="bold">Name: </span>{{facts.name}}</p>
+			<p><span class="bold">Chair: </span>{{facts.chair}}</p>
+			<p><span class="bold"># of Members: </span>{{facts.current_members.length}}</p>
+			<p><span class="bold">Website: </span><a v-bind:href="facts.url" target="_blank">{{facts.url}}</a></p>
 		</div>
 		<table class="committee-members" v-if="members.length">
 			<tr class="member-headers">
