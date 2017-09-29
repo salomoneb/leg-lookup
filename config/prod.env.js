@@ -1,4 +1,3 @@
 module.exports = {
-  NODE_ENV: '"production"', 
-  API_KEY: '"..."'
+  NODE_ENV: '"production"'
 }

@@ -21,20 +21,22 @@
 				<td>{{member.chamber | capitalize}}</td>
 			</tr>
 		</table>
+		<copybutton :committeeMembers="members"></copybutton>
 	</div>
 </template>
  
 <script>
+	import copybutton from "./CopyButton"
+
 	export default {
 		name: "committeeresults", 
 		props: ["committeeInfo", "chamber"], 
 		data: function() {
 			return {
-				members: "",
+				errors: "", 
 				facts: "",
 				loading: false,
-				facts: "", 
-				errors: "", 
+				members: ""
 			}
 		}, 
 		watch: {
@@ -59,6 +61,9 @@
 	      value = value.toString()
 	      return value.charAt(0).toUpperCase() + value.slice(1)
 	    }
+	  }, 
+	  components: {
+	  	copybutton
 	  }
 	}
 </script>

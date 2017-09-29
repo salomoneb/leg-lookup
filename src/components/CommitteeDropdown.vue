@@ -1,12 +1,12 @@
 <template>
 	<div id="committee-selection" v-if="chamberCommittees"> 
 		<select class="committee-select" v-model="committees">
-			<option disabled value="">Pick a committee</option>
+			<option disabled value="">Pick a Committee</option>
 			<option v-for="committee in chamberCommittees" v-bind:value="committee.id" >{{ committee.name }}</option>
 		</select>
 	  <errormessage v-if="errors !==''" :errorMsgs="errors"></errormessage>
-		<committeeresults :committeeInfo="committeeData" :chamber="chamberName"></committeeresults>
 		<img v-if="loading" :src="loaderIcon">	
+		<committeeresults :committeeInfo="committeeData" :chamber="chamberName"></committeeresults>
 	</div>
 </template>
 
@@ -40,7 +40,6 @@
 						url: `https://api.propublica.org/congress/v1/115/${this.chamberName.toLowerCase()}/committees/${this.committees}.json`, 
 						headers: {
 							"X-API-Key": "2eX2Dxe43hYuiIoXVeBg463BY8rpXVfY1PzbIUBu"
-							// "X-API-Key": "2eX2Dxe43hYuiIoXVeBg463BY8rpXVfY1PzbIUB"
 						}
 					})
 					.then(response => {
