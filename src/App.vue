@@ -42,10 +42,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-#app {
-  color: #444;
-  width: 38%;
-}
 a {
   border-bottom: 2px dotted;
   color: #2980b9;
@@ -54,15 +50,20 @@ a {
   text-decoration: none;
 }
 select {
-  background: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;  
+  background: url(./assets/images/arrow.svg) no-repeat right 10px center;
+  background-size: auto 60%;
   border: 1px solid #a7a8ab;
+  border-radius: 5px;
   box-shadow: 0 2px 5px 1px #F4F5F7;
-  font-size: 14px;
   display: block;
-  height: 2em;
+  font-size: 1em;
+  padding: 5px;
+  position: relative;
   margin-bottom: 1em;
-  padding: 1em;
-  width: 100%;
+  width: 100%;  
 }
 .header {
   flex-direction: column;
@@ -125,7 +126,6 @@ select {
   .member-headers th {
     padding: 6px 4px;
   }
-
   .member-info{
     td {
       padding: 4px;
@@ -135,10 +135,12 @@ select {
     }
   }
 }
-
+#app {
+  color: #444;
+  width: 38%;
+}
 #copy-button-container {
   text-align: center;
-  
   & .copy-button {
     background: linear-gradient(#ea4335, #ea4d4d);
     border: none;
