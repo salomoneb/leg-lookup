@@ -7,7 +7,7 @@
 			<p><span class="bold"># of Members: </span>{{facts.current_members.length}}</p>
 			<p><span class="bold">Website: </span><a v-bind:href="facts.url" target="_blank">{{facts.url}}</a></p>
 		</div>
-		<table class="committee-members" v-if="members.length">
+		<table class="committee-members" v-if="members.length" ref="table">
 			<tr class="member-headers">
 				<th>Name</th>
 				<th>State</th>
@@ -41,9 +41,9 @@
 		}, 
 		watch: {
 			committeeInfo(val) {
-				if (this.committeeInfo !== "") {
-						this.members = this.committeeInfo.current_members	
-						this.facts = this.committeeInfo	
+				if (this.committeeInfo !== "") {									
+					this.members = this.committeeInfo.current_members	
+					this.facts = this.committeeInfo	
 				}
 			}, 
 			chamber(val) {

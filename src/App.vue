@@ -19,11 +19,6 @@ import chamberdropdown from './components/ChamberDropdown'
 
 export default {
   name: "app",
-  data: function() {
-    return {
-      headerImg: require("./assets/images/capitol.svg")
-    }
-  },
   components: {
     chamberdropdown
   }
@@ -91,7 +86,7 @@ select {
 
 }
 .error-status {
-  background: rgba(243, 212, 204, 0.6);
+  background: #ffe7e8;
   border-radius: 8px;
   border: 1px solid;
   color: #da3333;
@@ -107,7 +102,7 @@ select {
   margin-top: 3em;
 }
 .committee-facts {
-  background: rgba(252, 255, 165, 0.3);
+  background: rgba(255, 251, 0, 0.22);
   border: 1px solid;
   border-radius: 4px;
   margin: 1.5em 0;
@@ -126,6 +121,7 @@ select {
 .committee-members {
   border-collapse: collapse;
   border-spacing: 1em;
+  margin-bottom: 2em;
   width: 100%;
   .member-headers th {
     padding: 6px 4px;
@@ -139,6 +135,28 @@ select {
       background: rgba(221, 221, 221, 0.4);
     }
   }
+}
+
+#copy-button-container {
+  text-align: center;
+  
+  & .copy-button {
+    background: linear-gradient(#ea4335, #ea4d4d);
+    border: none;
+    border-radius: 3px;
+    border-style: none;
+    color: #fff;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1em;
+    font-weight: 600;
+    padding: 0.5em 1em;
+
+    &.copy-button:focus {
+      outline: 0;
+    }
+  }
+  
 }
 
 </style>

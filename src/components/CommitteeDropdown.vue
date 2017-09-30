@@ -28,7 +28,7 @@
 		}, 
 		watch: {
 			chamberCommittees(val) {
-				this.committees = ""			
+				this.committees = ""	
 			}, 
 			chamberName(val) {
 				this.chamber = val
