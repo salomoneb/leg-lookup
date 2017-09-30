@@ -44,8 +44,7 @@ body {
 }
 #app {
   color: #444;
-  padding: 1em 5em;
-  width: 40%;
+  width: 38%;
 }
 a {
   border-bottom: 2px dotted;
@@ -152,11 +151,13 @@ select {
     font-weight: 600;
     padding: 0.5em 1em;
 
-    &.copy-button:focus {
+    &:focus {
       outline: 0;
     }
+    &:active, &:hover {
+      background: #e24242;
+    }
   }
-  
 }
 
 </style>

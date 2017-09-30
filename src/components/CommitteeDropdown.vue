@@ -35,6 +35,7 @@
 			}, 
 			committees(val) {
 				if (this.committees !== "") {
+					this.errors = ""
 					this.loading = true
 					axios.request("get", {
 						url: `https://api.propublica.org/congress/v1/115/${this.chamberName.toLowerCase()}/committees/${this.committees}.json`, 

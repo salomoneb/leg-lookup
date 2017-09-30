@@ -31,6 +31,7 @@
 		watch: {
 			chamber(val) {
 				if (this.chamber !== "") {
+					this.errors = ""
 					this.loading = true
 					axios.request("get", {
 						url: `https://api.propublica.org/congress/v1/115/${this.chamber.toLowerCase()}/committees.json`, 
