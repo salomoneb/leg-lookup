@@ -1,0 +1,9 @@
+{
+ "name": "committee-lookup",
+ "version": "1.0.0",
+ "author": "Salomone Baquis",
+ "private": true,
+ "scripts": {
+   "postinstall": "npm install express"
+ }
+}
