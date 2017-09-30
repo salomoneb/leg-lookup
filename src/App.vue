@@ -60,8 +60,7 @@ select {
   box-shadow: 0 2px 5px 1px #F4F5F7;
   display: block;
   font-size: 1em;
-  padding: 5px;
-  position: relative;
+  padding: 5px 10px;
   margin-bottom: 1em;
   width: 100%;  
 }
@@ -137,7 +136,7 @@ select {
 }
 #app {
   color: #444;
-  width: 38%;
+  width: 40%;
 }
 #copy-button-container {
   text-align: center;
