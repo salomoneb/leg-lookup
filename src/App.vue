@@ -41,6 +41,9 @@ body {
   word-break: break-word;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  @media screen and (max-width: 928px) {
+    margin: 1em;
+  }
 }
 a {
   border-bottom: 2px dotted;
@@ -137,6 +140,9 @@ select {
 #app {
   color: #444;
   width: 40%;
+  @media screen and (max-width: 928px) {
+    width: 100%;
+  }
 }
 #copy-button-container {
   text-align: center;
