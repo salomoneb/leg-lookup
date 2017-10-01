@@ -7,7 +7,7 @@
       <path d="M72.4,50.5c-0.3-12-8.6-23.2-22.4-23.2S27.9,38.3,27.6,50.5C31.8,49.8,52.5,47.4,72.4,50.5z"/>
       <path d="M57.2,23.3c0-2.6-1.7-4.7-3.7-5.7V8.5C53.5,6.6,51.9,5,50,5s-3.5,1.6-3.5,3.5v9.3c-1.9,1-3.4,3-3.4,5.5  c0,0.7-0.2,1.6-0.4,2.5c2.7-0.8,5.2-1,7.4-1c2.2,0,4.7,0.3,7.4,1C57.3,24.9,57.2,24,57.2,23.3z"/>
     </svg>      
-      <h1>Find a Committee</h1>
+      <h1>Committee Lookup</h1>
     </header>
     <chamberdropdown></chamberdropdown>
     <footer class="footer"><p>Data via <a href="https://www.propublica.org/datastore/api/propublica-congress-api" target="_blank">ProPublica</a></p></footer>
@@ -46,9 +46,8 @@ body {
   }
 }
 a {
-  border-bottom: 2px dotted;
+  border-bottom: 2px solid;
   color: #2980b9;
-  font-weight: 600;
   transition-duration: 0.1s;
   text-decoration: none;
 }
@@ -102,6 +101,9 @@ select {
 }
 .footer {
   margin-top: 3em;
+  a {
+    font-weight: 600;
+  }
 }
 .committee-facts {
   background: rgba(255, 251, 0, 0.22);
