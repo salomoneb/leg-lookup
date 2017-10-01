@@ -46,7 +46,7 @@ body {
   }
 }
 a {
-  border-bottom: 2px solid;
+  border-bottom: 2px dotted;
   color: #2980b9;
   font-weight: 600;
   transition-duration: 0.1s;
