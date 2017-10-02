@@ -28,7 +28,7 @@
 
 				var body = document.body, range, sel		
 				var el = this.$parent.$refs.table
-				console.log(el)
+
 				if (document.createRange && window.getSelection) {
 					range = document.createRange()
 					sel = window.getSelection()
