@@ -110,7 +110,7 @@ select {
   border: 1px solid;
   border-radius: 4px;
   margin: 1.5em 0;
-  padding: 1em 1.5em;
+  padding: 1em;
   h2 {
     margin: 0 0 1rem;
     text-align: center;

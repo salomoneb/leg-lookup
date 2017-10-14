@@ -41,8 +41,10 @@
 		}, 
 		watch: {
 			committeeInfo(val) {
-				if (this.committeeInfo !== "") {									
-					this.members = this.committeeInfo.current_members	
+				if (this.committeeInfo !== "") {		
+					let results = this.committeeInfo.current_members
+					this.alphabetizeNames(results)
+					this.members = results
 					this.facts = this.committeeInfo	
 				}
 			}, 
@@ -53,6 +55,24 @@
 				}
 			}
 		}, 
+		methods: {
+			alphabetizeNames(results) {
+				results.sort(function(a, b) {
+					let splitNameA = a.name.split(" ") 
+					let splitNameB = b.name.split(" ") 
+					let lastNameA = splitNameA[splitNameA.length - 1]
+					let lastNameB = splitNameB[splitNameB.length - 1]
+
+					if (lastNameA < lastNameB) {
+						return -1
+					}
+					if (lastNameA > lastNameB) {
+						return 1
+					} 
+					return 0
+				})
+			}
+		},
 	  filters: {
 	    capitalize: function(value) {
 	      if (!value) {
