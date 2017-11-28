@@ -105,6 +105,9 @@ select {
     font-weight: 600;
   }
 }
+.loader {
+  position: fixed;
+}
 .committee-facts {
   background: rgba(255, 251, 0, 0.22);
   border: 1px solid;
@@ -166,6 +169,19 @@ select {
     &:active, &:hover {
       background: #e24242;
     }
+  }
+  .copy-confirmation {
+    font-size: 0.9em;
+    font-weight: bold;
+    margin-bottom: 0;
+    padding: 0.5em 0 0 0.8em;
+    position: absolute;
+  }
+  .confirmation-fade-leave-active {
+    transition: opacity .5s;
+  }
+  .confirmation-fade-leave-to {
+    opacity: 0;
   }
 }
 

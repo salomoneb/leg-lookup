@@ -1,6 +1,10 @@
 <template >
 	<div id="copy-button-container">
-		<button v-if="committeeMembers.length" class="copy-button" type="button" v-on:click="copyText()">{{text}}</button>
+		<button v-if="committeeMembers.length" class="copy-button" type="button" v-on:click="copyText()">{{text}}
+		</button>
+			<transition name="confirmation-fade">
+				<span class="copy-confirmation" v-if="copySeen">{{copyMsg}}</span>
+			</transition>
 	</div>
 </template>
  
@@ -11,6 +15,8 @@
 		data: function() {
 			return {
 				text: "Copy Members", 
+				copyMsg: "Copied!",
+				copySeen: false,
 				people: ""
 			}
 		}, 
@@ -18,6 +24,7 @@
 			committeeMembers() {
 				// Remove the selection when the member listings change
 				window.getSelection().removeAllRanges()
+				this.copySeen = false;
 			}
 		},
 		methods: {
@@ -44,8 +51,12 @@
 					range = body.createTextRange()
 					range.moveToElementText(el)
 					range.select()
-				}	
+				}
 				document.execCommand("copy")	
+				this.copySeen = true
+				setTimeout( () => {
+					this.copySeen = false
+				}, 3000)	
 			}
 		}
 	}
