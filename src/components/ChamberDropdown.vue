@@ -24,7 +24,7 @@
 				chamber: "",
 				committees: "",
 				errors: "",
-				loader: require("@/assets/images/loader.svg"),
+				loader: require("../assets/images/loader.svg"),
 				loading: false
 			}
 		},
