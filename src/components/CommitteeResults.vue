@@ -24,42 +24,42 @@
 		<copybutton :committeeMembers="members"></copybutton>
 	</div>
 </template>
- 
+
 <script>
 	import copybutton from "./CopyButton"
 
 	export default {
-		name: "committeeresults", 
-		props: ["committeeInfo", "chamber"], 
-		data: function() {
+		name: "committeeresults",
+		props: ["committeeInfo", "chamber"],
+		data() {
 			return {
-				errors: "", 
+				errors: "",
 				facts: "",
 				loading: false,
 				members: ""
 			}
-		}, 
+		},
 		watch: {
 			committeeInfo(val) {
-				if (this.committeeInfo !== "") {		
+				if (this.committeeInfo !== "") {
 					let results = this.committeeInfo.current_members
 					this.alphabetizeNames(results)
 					this.members = results
-					this.facts = this.committeeInfo	
+					this.facts = this.committeeInfo
 				}
-			}, 
+			},
 			chamber(val) {
 				if (this.chamber !== "") {
 					this.members = ""
 					this.facts = ""
 				}
 			}
-		}, 
+		},
 		methods: {
 			alphabetizeNames(results) {
 				results.sort(function(a, b) {
-					let splitNameA = a.name.split(" ") 
-					let splitNameB = b.name.split(" ") 
+					let splitNameA = a.name.split(" ")
+					let splitNameB = b.name.split(" ")
 					let lastNameA = splitNameA[splitNameA.length - 1]
 					let lastNameB = splitNameB[splitNameB.length - 1]
 
@@ -68,20 +68,20 @@
 					}
 					if (lastNameA > lastNameB) {
 						return 1
-					} 
+					}
 					return 0
 				})
 			}
 		},
 	  filters: {
-	    capitalize: function(value) {
+	    capitalize(value) {
 	      if (!value) {
 	      	return ""
-	      } 
+	      }
 	      value = value.toString()
 	      return value.charAt(0).toUpperCase() + value.slice(1)
 	    }
-	  }, 
+	  },
 	  components: {
 	  	copybutton
 	  }

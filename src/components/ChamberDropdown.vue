@@ -5,10 +5,10 @@
 			<option>House</option>
 			<option>Senate</option>
 			<option>Joint</option>
-		</select> 
+		</select>
 		<errormessage v-if="errors !==''" :errorMsgs="errors"></errormessage>
 		<committeedropdown :chamberCommittees="committees" :chamberName="chamber" :loaderIcon="loader"></committeedropdown>
-		<img v-if="loading" :src="loader">	
+		<img v-if="loading" :src="loader">
 	</div>
 </template>
 
@@ -18,23 +18,23 @@
 	import axios from "axios"
 
 	export default {
-		name: "chamberdropdown", 
-		data: function() {
+		name: "chamberdropdown",
+		data() {
 			return {
 				chamber: "",
 				committees: "",
 				errors: "",
-				loader: require("../assets/images/loader.svg"), 
+				loader: require("@/assets/images/loader.svg"),
 				loading: false
 			}
-		}, 
+		},
 		watch: {
 			chamber(val) {
 				if (this.chamber !== "") {
 					this.errors = ""
 					this.loading = true
 					axios.request("get", {
-						url: `https://api.propublica.org/congress/v1/115/${this.chamber.toLowerCase()}/committees.json`, 
+						url: `https://api.propublica.org/congress/v1/115/${this.chamber.toLowerCase()}/committees.json`,
 						headers: {
 							"X-API-Key": "2eX2Dxe43hYuiIoXVeBg463BY8rpXVfY1PzbIUBu"
 						}
@@ -45,9 +45,8 @@
 			    })
 			    .catch(err => {
 			      this.errors = err
-			      console.log(this.errors)
 			      this.loading=false
-			    })									
+			    })
 				}
 			}
 		},
